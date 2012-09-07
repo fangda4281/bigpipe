@@ -11,15 +11,16 @@ var url = WScript.StdIn.ReadLine();//windows内部对象, 可能返回一个string
 
 if ( url.length == 0 )
 	//url = "www.baidu.com";
-    url = "http://lbsnss.sinaapp.com/lbsns/index.php/nor_app/";
+    //url = "http://lbsnss.sinaapp.com/lbsns/index.php/nor_app/";
     //url = "http://lbsnss.sinaapp.com/lbsns/index.php/bp_app/";
+    url = "http://lbsnss.sinaapp.com/lbsns/index.php/ajax_app/";
 
 WScript.Echo("\nChecking " + url + "...\n");
 
 // Create a new instance of HttpWatch in Firefox
 var control = new ActiveXObject('HttpWatch.Controller');
 
-for(var index=0; index < 1;index++){
+for(var index=0; index < 5;index++){
 
 var plugin = control.Firefox.New();
 
@@ -84,7 +85,7 @@ if ( plugin.Log.Pages.Count != 0 )
                         +summary.TimingSummaries.TTFB.Total+" "
                         +summary.TimingSummaries.Wait.Total);
     //save hwl log file
-    plugin.Log.Save("hwl/"+"NOR-"+ index + ".hwl");
+    plugin.Log.Save("hwl/"+"AJAX-"+ index + ".hwl");
 }
 
 
